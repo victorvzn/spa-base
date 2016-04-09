@@ -1,7 +1,14 @@
 {
   "name": "spa-base",
   "version": "0.1.0",
-  "scripts": {
-    
+  "scripts": {},
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "compression": "^1.6.1",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "jquery": "^2.2.3",
+    "node-uuid": "^1.4.7",
+    "page": "^1.7.1"
   }
 }
