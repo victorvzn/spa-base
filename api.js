@@ -16,4 +16,13 @@ router.get('/', (req, res) => {
   console.log(' >', 'GET /api')
 })
 
+// GET /todos
+router.get('/todos', (req, res) => {
+  util.fetchAll(function (err, data) {
+    if(err) return console.log(err)
+    res.json(data)
+    console.log(' > GET /api/todos', err)
+  })
+})
+
 module.exports = router

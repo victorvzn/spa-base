@@ -1,10 +1,17 @@
 var fs = require('fs')
 
-module.exports = {}
+module.exports = {
+  fetchAll: fetchAll
+}
 
 // Public functions
 
-
+function fetchAll (fn) {
+  _openFile('./data/fake.json', function (err, data) {
+    data = data || "[]"
+    fn(err, JSON.parse(data))
+  })
+}
 
 // Private functions
 
