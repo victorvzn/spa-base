@@ -20,6 +20,7 @@ function render () {
 
   util.getTodos(function(todos) {
     var CountComponent = require('src/lib/todo-count')
+    var TodoClearCompletedComponent = require('src/lib/todo-clear-completed')
 
     $todosArray = []
     todos.forEach(function (todo) {
@@ -34,6 +35,11 @@ function render () {
       return todo.active.toString() === 'false'
     })
 
+    var counterTodosCompleted = todos.filter(function (todo) {
+      return todo.active.toString() === 'true'
+    })
+
     CountComponent.render(counterTodosLeft.length)
+    TodoClearCompletedComponent.render(counterTodosCompleted.length, counterTodosCompleted)
   })
 }
