@@ -1,0 +1,50 @@
+.TodoItem
+  display flex
+  justify-content space-between
+  padding: .5em 0;
+  border-bottom: 1px solid #ccc;
+  align-items center
+  
+  &:last-child
+    border-bottom: 0;
+
+  &-check
+    flex-basis: auto;
+    
+  &-label
+    flex-basis: 90%;
+    line-height: 20px;
+    padding: 5px;
+
+    input
+      display none
+      border: 2px solid #ccc;
+      padding: 5px 10px;
+      font-size: .8em;
+      outline: none;
+      background: #fff;
+      border-radius: 3px;
+
+    span
+      word-break: break-all;
+
+    &.is-editing
+      span
+        display none
+      input
+        display block
+        width: 100%;
+    
+  &-remove
+    flex-basis: auto;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 16px;
+    color: #666;
+    font-weight: bold;
+
+    &:hover
+      color: #fff;
+      background: #ccc;
+      border-radius: 50%;
