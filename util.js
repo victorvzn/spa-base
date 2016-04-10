@@ -4,7 +4,8 @@ module.exports = {
   fetchAll: fetchAll,
   fetchOne: fetchOne,
   saveOne: saveOne,
-  updateOne: updateOne
+  updateOne: updateOne,
+  removeOne: removeOne,
 }
 
 // Public functions
@@ -64,6 +65,25 @@ function updateOne (newObjJSON, fn) {
     //console.log("NOJ", newObjJSON)
     //console.log("ID", objectId)
     //console.log("INDEX", objectIndex)
+  })
+}
+
+function removeOne (objectId, fn) {
+  _openFile('./data/fake.json', function (err, data) {
+    var objectsJSON,
+        objectIndex,
+        removedObject
+    data = data || "[]"
+    objectsJSON = JSON.parse(data)
+    objectIndex = objectsJSON.map(function(el) {return el.id }).indexOf(objectId)
+    if(objectIndex > -1) {
+      removedObject = objectsJSON.splice(objectIndex, 1)
+      _saveFile('./data/fake.json', JSON.stringify(objectsJSON, null, 2), function (err) {
+        fn(err, removedObject)
+      })
+    } else {
+      fn(err, {success: false})
+    }
   })
 }
 

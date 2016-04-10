@@ -57,4 +57,14 @@ router.put('/todos/:id', (req, res) => {
   })
 })
 
+// DELETE /todos/:id
+router.delete('/todos/:id', (req, res) => {
+  var id = req.params.id
+  util.removeOne(id, function (err, data) {
+    if(err) return console.log(err)
+    res.json(data)
+    console.log(' > DELETE /api/todos/%s', id)
+  })
+})
+
 module.exports = router
