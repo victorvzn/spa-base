@@ -1,5 +1,6 @@
 const express = require('express')
 const pack = require('./package')
+const util = require('./util')
 
 const router = express.Router()
 
