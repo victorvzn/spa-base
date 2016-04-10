@@ -19,6 +19,7 @@ function render () {
   $TodoList = $('#TodoList')
 
   util.getTodos(function(todos) {
+    var CountComponent = require('src/lib/todo-count')
 
     $todosArray = []
     todos.forEach(function (todo) {
@@ -28,5 +29,11 @@ function render () {
     $TodoList
       .html('')
       .html($todosArray)
+
+    var counterTodosLeft = todos.filter(function (todo) {
+      return todo.active.toString() === 'false'
+    })
+
+    CountComponent.render(counterTodosLeft.length)
   })
 }
