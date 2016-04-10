@@ -8,10 +8,13 @@ Ejemplo de una aplicación web de una página.
 
 ### How to install
 
-  $ npm install
+```bash
+$ npm install
+```
 
 ### How to use (Development mode)
 
-  $ gulp watch // watcher ejs, css and js
-  $ node index // Execute the server to serve assets, routes and api
-
+```bash
+$ gulp watch // watcher ejs, css and js
+$ node index // Execute the server to serve assets, routes and api
+```
