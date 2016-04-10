@@ -19,6 +19,19 @@ function render (todo) {
         TodoListComponent.render()
       })
     })
+
+  $todoItem
+    .on('click', '.TodoItem-check input', function (ev) {
+      ev.preventDefault()
+      var $this = $(this)
+      var TodoListComponent = require('src/lib/todo-list')
+      var $parent = $this.closest(".TodoItem")
+      var id = $parent.data('id')
+      var checkValue = this.checked
+      util.updateTodos(id, {active: checkValue}, function (data) {
+        TodoListComponent.render()
+      })
+    })
   
   return $todoItem
 }
