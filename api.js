@@ -15,3 +15,5 @@ router.get('/', (req, res) => {
   })
   console.log(' >', 'GET /api')
 })
+
+module.exports = router
