@@ -2,8 +2,6 @@
 
 Ejemplo de una aplicación web de una página.
 
-### Screenshot
-
 ![Spa-base](https://cldup.com/gG5BcxnrX1.png)
 
 ### How to install
