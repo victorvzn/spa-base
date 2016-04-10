@@ -36,4 +36,14 @@ router.get('/todos/:id', (req, res) => {
   })
 })
 
+// POST /todos
+router.post('/todos', (req, res) => {
+  var todo = {title: req.body.title, active: false}
+  util.saveOne(todo, function (err, data) {
+    if(err) return console.log(err)
+    res.json(data)
+    console.log(' > POST /api/todos')
+  })
+})
+
 module.exports = router
