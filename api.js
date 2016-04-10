@@ -46,4 +46,15 @@ router.post('/todos', (req, res) => {
   })
 })
 
+// PUT /todos/:id
+router.put('/todos/:id', (req, res) => {
+  var id = req.params.id
+  var todo = {id: id, title: req.body.title, active: req.body.active}
+  util.updateOne(todo, function (err, data) {
+    if(err) return console.log(err)
+    res.json(data)
+    console.log(' > PUT /api/todos/%s', id, data)
+  })
+})
+
 module.exports = router

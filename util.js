@@ -3,7 +3,8 @@ var fs = require('fs')
 module.exports = {
   fetchAll: fetchAll,
   fetchOne: fetchOne,
-  saveOne: saveOne
+  saveOne: saveOne,
+  updateOne: updateOne
 }
 
 // Public functions
@@ -38,6 +39,32 @@ function saveOne (objJSON, fn) {
     _saveFile('./data/fake.json', JSON.stringify(objectsJSON, null, 2), function (err) {
       fn(err, objJSON)
     })
+  })
+}
+
+function updateOne (newObjJSON, fn) {
+  _openFile('./data/fake.json', function (err, data) {
+    var objectsJSON, 
+        objectId,
+        objectIndex
+    data = data || "[]"
+    objectsJSON = JSON.parse(data)
+    objectId = newObjJSON.id
+    objectIndex = objectsJSON.map(function(el) {return el.id }).indexOf(objectId)
+    if(objectIndex > -1) {
+      
+      objectsJSON[objectIndex].title = newObjJSON.title ? newObjJSON.title : objectsJSON[objectIndex].title
+      objectsJSON[objectIndex].active = newObjJSON.active ? newObjJSON.active : objectsJSON[objectIndex].active
+
+      _saveFile('./data/fake.json', JSON.stringify(objectsJSON, null, 2), function (err) {
+        fn(err, objectsJSON[objectIndex])
+      })
+    } else {
+      fn(err, {success: false})
+    }
+    //console.log("NOJ", newObjJSON)
+    //console.log("ID", objectId)
+    //console.log("INDEX", objectIndex)
   })
 }
 
