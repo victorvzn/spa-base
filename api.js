@@ -26,4 +26,14 @@ router.get('/todos', (req, res) => {
   })
 })
 
+// GET /todos/:id
+router.get('/todos/:id', (req, res) => {
+  var id = req.params.id
+  util.fetchOne(id, function (err, data) {
+    if(err) return console.log(err)
+    res.json(data)
+    console.log(' > GET /api/todos/%s', id)
+  })
+})
+
 module.exports = router
