@@ -5,6 +5,7 @@ var $rootNode = require('src/lib/root-node')
 
 var LayoutComponent = require('src/lib/layout')
 var TodoInputComponent = require('src/lib/todo-input')
+var TodoMarkAllComponent = require('src/lib/todo-mark-all')
 var TodoListComponent = require('src/lib/todo-list')
 
 function render () {
@@ -12,6 +13,7 @@ function render () {
   
   LayoutComponent.render()
   TodoInputComponent.render('#Layout', '.Layout-body')
+  TodoMarkAllComponent.render('#Layout', '.Layout-body')
   TodoListComponent.render()
 
   require('src/lib/loading').hide()
