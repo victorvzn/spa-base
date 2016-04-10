@@ -5,12 +5,14 @@ var $rootNode = require('src/lib/root-node')
 
 var LayoutComponent = require('src/lib/layout')
 var TodoInputComponent = require('src/lib/todo-input')
+var TodoListComponent = require('src/lib/todo-list')
 
 function render () {
   $rootNode.html('')
   
   LayoutComponent.render()
   TodoInputComponent.render('#Layout', '.Layout-body')
+  TodoListComponent.render()
 
   require('src/lib/loading').hide()
 }

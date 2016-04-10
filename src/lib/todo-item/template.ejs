@@ -1,0 +1,10 @@
+<div class="TodoItem" data-id="<%= id %>">
+  <div class="TodoItem-check">
+    <input type="checkbox" <% if (active === 'true') { %>checked<% } %>>
+  </div>
+  <div class="TodoItem-label">
+    <span><%= title %></span>
+    <input type="text" value="<%= title %>">
+  </div>
+  <a href="#" class="TodoItem-remove">x</a>
+</div>
