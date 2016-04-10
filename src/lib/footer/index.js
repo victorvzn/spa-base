@@ -6,6 +6,11 @@ var template = require('./template.ejs')
 
 function render () {
   $rootNode.append(template)
+
+  $('#Footer-about').on('click', function (ev) {
+    ev.preventDefault()
+    alert('About page')
+  })
 }
 
 module.exports = {

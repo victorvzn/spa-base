@@ -12,11 +12,11 @@
   {
     "id": "ab027610-ff2b-11e5-a6ec-97270885e492",
     "title": "Task 3",
-    "active": "false"
+    "active": "true"
   },
   {
     "id": "b980f0e0-ff2b-11e5-a6ec-97270885e492",
     "title": "Task 4",
-    "active": "true"
+    "active": "false"
   }
 ]
