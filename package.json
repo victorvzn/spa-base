@@ -24,5 +24,14 @@
     "through": "^2.3.8",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "nc": "mkdir -p src/lib/newcomponent && touch src/lib/newcomponent/index.styl && touch src/lib/newcomponent/index.js  && touch src/lib/newcomponent/template.ejs",
+    "make-dirs": "mkdir -p public/ public/css public/js",
+    "build-styl": "NODE_PATH=. stylus --use nib src/index.styl --out public/css/build.css ",
+    "build-js": "NODE_PATH=. browserify src/index.js > public/js/build.js",
+    "build": "npm run make-dirs && npm run build-styl && npm run build-js",
+    "start": "NODE_PATH=. node index",
+    "serve": "npm run build && npm start"
   }
 }
