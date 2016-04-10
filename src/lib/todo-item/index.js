@@ -44,6 +44,28 @@ function render (todo) {
       $parent.find('.TodoItem-label input').focus()
       $parent.find('.TodoItem-label input').select()
     })
+
+  $todoItem
+    .on('keyup', '.TodoItem-label input', function (ev) {
+      ev.preventDefault()
+      var $this = $(this)
+      var TodoListComponent = require('src/lib/todo-list')
+      var $parent = $this.closest(".TodoItem")
+      if(ev.keyCode === 13) {
+        var id = $parent.data('id')
+        var todoJSON = {title: this.value}
+        util.updateTodos(id, todoJSON, function (data) {
+          $parent.find('.TodoItem-label span').text('')
+          $parent.find('.TodoItem-label input').val('')
+          $parent.find('.TodoItem-label').removeClass('is-editing')
+          TodoListComponent.render()
+        })
+      }
+      if(ev.keyCode === 27) {
+        $parent.find('.TodoItem-label').removeClass('is-editing')
+        TodoListComponent.render()
+      }
+    })
   
   return $todoItem
 }
