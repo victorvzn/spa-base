@@ -23,7 +23,6 @@ function fetchOne (objectId, fn) {
     data = data || "[]"
     objectsJSON = JSON.parse(data)
     objectIndex = objectsJSON.map(function(el) {return el.id }).indexOf(objectId)
-    console.log(objectIndex)
     fn(err, objectsJSON[objectIndex] || {})
   })
 }

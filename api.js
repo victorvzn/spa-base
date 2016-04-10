@@ -53,7 +53,7 @@ router.put('/todos/:id', (req, res) => {
   util.updateOne(todo, function (err, data) {
     if(err) return console.log(err)
     res.json(data)
-    console.log(' > PUT /api/todos/%s', id, data)
+    console.log(' > PUT /api/todos/%s', id)
   })
 })
 
