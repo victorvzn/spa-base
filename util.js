@@ -6,6 +6,7 @@ module.exports = {
   saveOne: saveOne,
   updateOne: updateOne,
   removeOne: removeOne,
+  markAll: markAll
 }
 
 // Public functions
@@ -84,6 +85,18 @@ function removeOne (objectId, fn) {
     } else {
       fn(err, {success: false})
     }
+  })
+}
+
+function markAll (objJSON, fn) {
+  _openFile('./data/fake.json', function (err, data) {
+    var objectsJSON
+    data = data || "[]"
+    objectsJSON = JSON.parse(data)
+    objectsJSON = objectsJSON.map(function(obj) { return { id: obj.id, title: obj.title, active: this.active} }, {active: objJSON.active})
+    _saveFile('./data/fake.json', JSON.stringify(objectsJSON, null, 2), function (err) {
+      fn(err, objectsJSON)
+    })
   })
 }
 

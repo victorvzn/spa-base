@@ -22,7 +22,7 @@ router.get('/todos', (req, res) => {
   util.fetchAll(function (err, data) {
     if(err) return console.log(err)
     res.json(data)
-    console.log(' > GET /api/todos', err)
+    console.log(' > GET /api/todos')
   })
 })
 
@@ -64,6 +64,16 @@ router.delete('/todos/:id', (req, res) => {
     if(err) return console.log(err)
     res.json(data)
     console.log(' > DELETE /api/todos/%s', id)
+  })
+})
+
+// GET /todos/markall
+router.post('/todos/markall', (req, res) => {
+  var active = {active: req.body.active}
+  util.markAll(active, function (err, data) {
+    if(err) return console.log(err)
+    res.json(data)
+    console.log(' > GET /api/todos/markall')
   })
 })
 

@@ -2,11 +2,11 @@
   {
     "id": "2",
     "title": "task 2",
-    "active": true
+    "active": "false"
   },
   {
+    "id": "67404d40-fef8-11e5-aa87-73c12866ed8e",
     "title": "probando no mas",
-    "active": "true",
-    "id": "67404d40-fef8-11e5-aa87-73c12866ed8e"
+    "active": "false"
   }
 ]
