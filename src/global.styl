@@ -1,0 +1,65 @@
+////////////////////////////////////////////////////
+// Variables
+
+$primary-color = #30A8DE //#B32F  37
+$secondary-color = #FFFFFF
+
+$background = #aaaaaa
+
+// Devices
+
+$bp-xsmall = 48em // Extra small - Phones (<768px)
+$bp-small  = 48em // Small       - Tablets (>=768px)
+$bp-medium = 62em // Medium      - Desktops (>=992px)
+$bp-large  = 75em // Large       - Desktops (>=1200px)
+
+// From http://getbootstrap.com/css/#grid-options
+
+////////////////////////////////////////////////////
+
+// Tird party
+
+@import "./nib"
+@import "./assets/normalize.css"
+
+// Base
+
+html
+  box-sizing border-box
+
+*
+*:before
+*:after
+  box-sizing inherit
+
+
+// General
+
+body 
+  font-family 'Lato', sans-serif
+  font-size 16px
+  font-weight 400
+  background #E0E0E0
+  padding-bottom 80px
+
+a
+  color $primary-color
+  text-decoration none
+  transition color .3s ease
+
+  &:active
+  &:hover
+    color lighten($primary-color, 25%)
+  
+
+img
+  min-width 100%
+  width: 100%;
+
+h1
+h2
+h3
+h4
+h5
+h6
+  margin 0
