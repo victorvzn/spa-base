@@ -32,5 +32,10 @@
     "through": "^2.3.8",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "author": "Victor Villazon",
+  "engines": {
+    "node": "~4.2.6",
+    "npm": "2.14.16"
   }
 }
